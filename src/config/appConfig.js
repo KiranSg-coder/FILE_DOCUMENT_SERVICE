@@ -8,7 +8,7 @@ const BASE_UPLOAD_PATH =
 const TEMP_UPLOAD_PATH =
   process.env.TEMP_UPLOAD_PATH || path.join(BASE_UPLOAD_PATH, "temp");
 
-const PORT = Number(process.env.PORT) || 7000;
+const PORT = Number(process.env.PORT) || 6008;
 
 // Storage backend config
 // Currently only "local" is active. When S3 is introduced,

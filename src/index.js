@@ -1,10 +1,21 @@
+require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const sequelizeConnection = require("./config/database");
 const { BASE_UPLOAD_PATH, PORT } = require("./config/appConfig");
 const fileRoutes = require("./routes/fileRoutes");
 
 const app = express();
+
+const corsOrigin =
+  process.env.CORS_ORIGIN === "*"
+    ? true
+    : (process.env.CORS_ORIGIN || "http://localhost:5173")
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+app.use(cors({ origin: corsOrigin, credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
