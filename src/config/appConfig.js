@@ -1,6 +1,6 @@
 const path = require("path");
 
-require("dotenv").config();
+require("./loadEnv");
 
 const BASE_UPLOAD_PATH =
   process.env.BASE_UPLOAD_PATH || "D:/FILE_DOC_STORAGE";
